@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoes Inventory System</title>
+    <link rel="stylesheet" href="Item.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <svg class="shoe-logo-svg" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <path d="M502.7 266.5c-7.7-14.7-22.3-25.1-39.3-27.9l-79.6-12.9c-14.1-2.3-28.5 2.1-39.1 11.9l-45.4 42c-15.1 14-36.1 19.8-56.3 15.6l-85.1-17.7c-17.8-3.7-36.1 1.7-49.4 14.5L14.7 334c-12.2 11.8-16.1 29.8-9.8 45.7l19.6 49.1c6.3 15.8 21.6 26.2 38.6 26.2H456c24.3 0 44.9-17.2 49.2-41.1l14.9-82.3c2.9-16.1-2.4-32.5-17.4-45.1zM448 400H64c-3.4 0-6.5-2.1-7.7-5.3l-12-30.1 25.1-24.3c19.9-19.3 47.4-27.5 74.2-22l85.1 17.7c30.3 6.3 61.8-2.4 84.5-23.4l45.4-42c2.1-2 5-2.9 7.8-2.4l79.6 12.9c3.4.6 6.3 2.6 7.9 5.6L464 321.4 451.7 389c-.9 4.8-5 8.2-9.7 8.2z"/>
+            </svg>
+            <span class="nav-brand">Shoes Inventory System</span>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="#" class="nav-item">📊 Dashboard</a></li>
+            <li><a href="#" class="nav-item active">📦 Items</a></li>
+            <li><a href="#" class="nav-item">Supplier</a></li>
+            <li><a href="#" class="nav-item">Stock</a></li>
+            <li><a href="#" class="nav-item">Transactions</a></li>
+            <li><a href="#" class="nav-item">Users</a></li>
+            <li><a href="#" class="nav-item">Reports</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <div class="user-profile">
+                <svg class="profile-avatar-glyph" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5-4-8-4z"/></svg>
+                <span class="username">User1</span>
+                <span class="role-badge">Staff</span>
+            </div>
+            <button class="logout-pill-btn">
+                <svg viewBox="0 0 24 24"><path d="M13 3h-2v10h2V3zm4.45 2.14l-1.42 1.42C17.46 7.73 18 9.3 18 11c0 3.31-2.69 6-6 6s-6-2.69-6-6c0-1.7.54-3.27 1.48-4.43L6.05 5.14C4.74 6.71 4 8.76 4 11c0 4.42 3.58 8 8 8s8-3.58 8-8c0-2.24-.74-4.29-2.05-5.86z"/></svg>
+                Logout
+            </button>
+        </div>
+    </nav>
+
+    <main class="purple-canvas-panel">
+        
+        <div class="section-heading-row">
+            <h1 class="page-title-label">
+                <span class="package-box-icon">📦</span> Items Management
+            </h1>
+            <a href="#addItemModal" class="btn-add-item-trigger">+ Add New Item</a>
+        </div>
+
+        <div class="search-filter-pill-capsule">
+            <input type="text" class="search-box-field" placeholder="Sugar" value="Sugar">
+            
+            <div class="dropdown-wrapper-control">
+                <select class="category-select-menu">
+                    <option value="All Categories">All Categories</option>
+                    <option value="Dairy" selected>Dairy</option>
+                    <option value="Flavoring">Flavoring</option>
+                    <option value="Sweetener">Sweetener</option>
+                </select>
+            </div>
+            
+            <button type="button" class="action-btn execution-search-btn">Search</button>
+            <button type="button" class="action-btn execution-reset-btn">Reset</button>
+        </div>
+
+        <div class="central-showcase-label">Parang ganto dapat</div>
+
+        <div class="curved-ledger-table-card">
+            <div class="table-scroll-axis-frame">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Item Name</th>
+                            <th>Category</th>
+                            <th>Unit</th>
+                            <th>Unit Price</th>
+                            <th>Supplier</th>
+                            <th>Stock</th>
+                            <th>Min</th>
+                            <th style="text-align: center;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="row-index-id">9</span></td>
+                            <td><strong>Caramel Syrup</strong></td>
+                            <td>Flavoring</td>
+                            <td>bottle</td>
+                            <td>₱175.00</td>
+                            <td>SugarSweet Co.</td>
+                            <td><span class="qty-indicator">5.99 bottle</span></td>
+                            <td>3.00</td>
+                            <td>
+                                <div class="action-buttons-inline-flex">
+                                    <button class="row-btn edit-action-btn">✏️ Edit</button>
+                                    <button class="row-btn delete-action-btn">🗑️ Del</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="row-index-id">5</span></td>
+                            <td><strong>Chocolate Powder</strong></td>
+                            <td>Flavoring</td>
+                            <td>kg</td>
+                            <td>₱260.00</td>
+                            <td>BenCafe Roasters</td>
+                            <td><span class="qty-indicator">5.50 kg</span></td>
+                            <td>5.00</td>
+                            <td>
+                                <div class="action-buttons-inline-flex">
+                                    <button class="row-btn edit-action-btn">✏️ Edit</button>
+                                    <button class="row-btn delete-action-btn">🗑️ Del</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="row-index-id">8</span></td>
+                            <td><strong>Coffee Filters</strong></td>
+                            <td>Equipment</td>
+                            <td>pack</td>
+                            <td>₱85.00</td>
+                            <td>BenCafe Roasters</td>
+                            <td><span class="qty-indicator">22.00 pack</span></td>
+                            <td>10.00</td>
+                            <td>
+                                <div class="action-buttons-inline-flex">
+                                    <button class="row-btn edit-action-btn">✏️ Edit</button>
+                                    <button class="row-btn delete-action-btn">🗑️ Del</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="row-index-id">1</span></td>
+                            <td><strong>Espresso Beans</strong></td>
+                            <td>Coffee</td>
+                            <td>kg</td>
+                            <td>₱350.00</td>
+                            <td>BenCafe Roasters</td>
+                            <td><span class="qty-indicator">25.50 kg</span></td>
+                            <td>10.00</td>
+                            <td>
+                                <div class="action-buttons-inline-flex">
+                                    <button class="row-btn edit-action-btn">✏️ Edit</button>
+                                    <button class="row-btn delete-action-btn">🗑️ Del</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="addItemModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div class="modal-title-text"><span style="color:#ffb300;">✦</span> Add New Item</div>
+                <a href="#" class="close-frame-btn">&times;</a>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="return false;">
+                    <div class="modal-form-grid-layout">
+                        <div class="input-form-block">
+                            <label>Item Name *</label>
+                            <input type="text" placeholder="Sugar" value="Sugar" required>
+                        </div>
+                        <div class="input-form-block">
+                            <label>Category</label>
+                            <input type="text" placeholder="Dairy" value="Dairy">
+                        </div>
+                        <div class="input-form-block">
+                            <label>Unit</label>
+                            <input type="text" placeholder="2" value="2">
+                        </div>
+                        <div class="input-form-block">
+                            <label>Unit Price (₱)</label>
+                            <input type="text" value="0,00">
+                        </div>
+                        <div class="input-form-block full-width-span-row">
+                            <label>Supplier</label>
+                            <select>
+                                <option value="">— None —</option>
+                                <option value="Supplier A">Supplier A</option>
+                                <option value="Supplier B">Supplier B</option>
+                            </select>
+                        </div>
+                        <div class="input-form-block full-width-span-row">
+                            <label>Min. Threshold</label>
+                            <input type="number" value="10">
+                        </div>
+                    </div>
+                    <div class="modal-action-footer">
+                        <a href="#" class="modal-footer-btn btn-modal-cancel">Cancel</a>
+                        <button type="button" class="modal-footer-btn btn-modal-confirm" onclick="window.location.hash='';">✓ Save Item</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

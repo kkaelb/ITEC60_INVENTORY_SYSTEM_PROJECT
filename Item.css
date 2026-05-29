@@ -1,0 +1,417 @@
+/* ==========================================================================
+   1. SCHEME ARCHITECTURE CORE AND RESETS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f7f9fc;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   2. NAVBAR TOP RUNWAY GRID
+   ========================================================================== */
+.navbar {
+    background-color: #ffffff;
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.shoe-logo-svg {
+    width: 38px;
+    height: 38px;
+    fill: #1a202c;
+}
+
+.nav-brand {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #1a202c;
+    letter-spacing: -0.3px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 4px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #4a5568;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+}
+
+.nav-item:hover {
+    color: #1a202c;
+    background-color: #edf2f7;
+}
+
+.nav-item.active {
+    color: #1a202c;
+    background-color: #e2e8f0;
+    font-weight: 600;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profile-avatar-glyph {
+    width: 28px;
+    height: 28px;
+    fill: #2d3748;
+}
+
+.username {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #2d3748;
+}
+
+.role-badge {
+    font-size: 0.75rem;
+    color: #718096;
+}
+
+.logout-pill-btn {
+    background-color: #e53e3e;
+    color: #ffffff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.logout-pill-btn svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}
+.logout-pill-btn:hover { background-color: #c53030; }
+
+/* ==========================================================================
+   3. DEEP INDIGO/PURPLE CANVAS COMPONENT PANELS
+   ========================================================================== */
+.purple-canvas-panel {
+    background-color: #5c6bc0; /* Matched purple hue */
+    margin: 20px;
+    border-radius: 16px;
+    padding: 35px 30px;
+    min-height: calc(100vh - 125px);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.section-heading-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.page-title-label {
+    color: #ffffff;
+    font-size: 1.65rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.package-box-icon {
+    font-size: 1.8rem;
+}
+
+.btn-add-item-trigger {
+    background-color: #3e2723; /* Dark earthy brown accent */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: background-color 0.15s;
+}
+.btn-add-item-trigger:hover { background-color: #271815; }
+
+/* ==========================================================================
+   4. CAPSULE INPUT SEARCH SELECTION BAR LAYOUT
+   ========================================================================== */
+.search-filter-pill-capsule {
+    background-color: #e2e8f0; /* Soft grey inner structure base */
+    padding: 10px 14px;
+    border-radius: 40px; /* Fully capsule rounded bar layout style */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    max-width: 900px;
+}
+
+.search-box-field {
+    flex: 2;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    color: #2d3748;
+}
+
+.dropdown-wrapper-control {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding-right: 8px;
+}
+
+.category-select-menu {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    color: #2d3748;
+    cursor: pointer;
+}
+
+.action-btn {
+    padding: 10px 28px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+.action-btn:hover { opacity: 0.9; }
+
+.execution-search-btn { background-color: #00e676; color: #1a202c; } /* Neon light mint */
+.execution-reset-btn { background-color: #ff5252; color: #ffffff; } /* Bright operational coral red */
+
+.central-showcase-label {
+    text-align: center;
+    color: #1a202c;
+    font-size: 1.15rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   5. CONTAINER DATA BASE CURVED CARD LEDGER GRID
+   ========================================================================== */
+.curved-ledger-table-card {
+    background-color: #ffffff;
+    border-radius: 28px; /* Distinct rounded panel frame matching mockups */
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.table-scroll-axis-frame {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    background-color: #4e342e; /* Dark chocolate brown matrix heading */
+    color: #ffffff;
+    font-size: 0.82rem;
+    text-transform: capitalize;
+    font-weight: 600;
+    padding: 14px 16px;
+}
+
+th:first-child { border-top-left-radius: 4px; border-bottom-left-radius: 4px; }
+th:last-child { border-top-right-radius: 4px; border-bottom-right-radius: 4px; }
+
+td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #edf2f7;
+    color: #4a5568;
+    font-size: 0.9rem;
+}
+
+tr:last-child td { border-bottom: none; }
+
+.row-index-id {
+    color: #718096;
+}
+
+.qty-indicator {
+    color: #4a5568;
+}
+
+/* UI Manipulation Controls Layout */
+.action-buttons-inline-flex {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.row-btn {
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+.row-btn:active { transform: scale(0.96); }
+
+.edit-action-btn { background-color: #ff9100; }
+.delete-action-btn { background-color: #ff1744; }
+
+/* ==========================================================================
+   6. PURE CSS POPUP VIEW TARGET CONTROLLERS
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay:target { display: flex; }
+
+.modal-box {
+    background-color: #ffffff;
+    width: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    animation: zoomEntrance 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes zoomEntrance {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header {
+    background-color: #3e2723;
+    color: #ffffff;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title-text {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.close-frame-btn {
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    opacity: 0.7;
+}
+.close-frame-btn:hover { opacity: 1; }
+
+.modal-body { padding: 20px; }
+
+.modal-form-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.input-form-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.full-width-span-row { grid-column: span 2; }
+
+.input-form-block label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.modal-body input, 
+.modal-body select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background-color: #edf2f7;
+    outline: none;
+}
+
+.modal-body input:focus {
+    border-color: #3e2723;
+    background-color: #ffffff;
+}
+
+.modal-action-footer {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-footer-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-modal-cancel { background-color: #a0aec0; color: #ffffff; }
+.btn-modal-confirm { background-color: #4caf50; color: #ffffff; }
